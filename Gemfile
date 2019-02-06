@@ -66,3 +66,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'kakurenbo-puti'
 gem 'seed-fu'
 gem 'dotenv-rails'
+
+gem 'devise'
+gem 'bootstrap'
+gem 'jquery-rails'
+gem 'virtus'
+gem 'rails-i18n'

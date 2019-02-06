@@ -1,0 +1,5 @@
+ja:
+  enum:
+    status:
+      incomplete: '未達成'
+      complete: '達成済'
