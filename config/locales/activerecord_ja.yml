@@ -1,0 +1,14 @@
+ja:
+  activerecord:
+    models:
+      todo: 'ToDo'
+    attributes:
+      todo:
+        title: 'タイトル'
+        body: '内容'
+        status: '状態'
+  activemodel:
+    attributes:
+      search_todos_form:
+        title: 'タイトル'
+        status: '状態'

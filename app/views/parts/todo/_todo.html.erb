@@ -1,0 +1,25 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th><%= Todo.human_attribute_name(:status) %></th>
+      <th><%= Todo.human_attribute_name(:title) %></th>
+      <th>操作</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% todos.each do |t| %>
+      <tr>
+        <td>
+          <%= I18n.t(t.status, scope: [:enum, :status]) %>
+        </td>
+        <td><%= t.title %></td>
+        <td>
+          <%= render_detail_link t %>
+          <%= render_edit_link edit_todo_path(t) %>
+          <%= render_delete_link t %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

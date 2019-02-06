@@ -1,0 +1,7 @@
+<h1><%= Todo.model_name.human %>詳細</h1>
+<%= render 'parts/todo/show_detail', todo: @todo %>
+
+<div class="bottom-btn-field">
+  <%= render_edit_link edit_todo_path(@todo) %>
+  <%= render_return_link todos_path %>
+</div>

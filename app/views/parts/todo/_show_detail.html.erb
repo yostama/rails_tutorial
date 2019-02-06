@@ -1,0 +1,14 @@
+<table class="table table-hover">
+  <tr>
+    <th><%= Todo.human_attribute_name(:status) %></th>
+    <td><%= I18n.t(todo.status, scope: [:enum, :status]) %></td>
+  </tr>
+  <tr>
+    <th><%= Todo.human_attribute_name(:title) %></th>
+    <td><%= todo.title %></td>
+  </tr>
+  <tr>
+    <th><%= Todo.human_attribute_name(:body) %></th>
+    <td><%= todo.body %></td>
+  </tr>
+</table>

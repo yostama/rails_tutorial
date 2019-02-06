@@ -1,0 +1,23 @@
+<div class='card' style="padding: 10px">
+  <div class='card-body'>
+    <%= form_for search_form, url: todos_path, method: :get, html: { class: 'form-horizontal' } do |f| %>
+      <div class='form-group row'>
+        <%= f.label :title, SearchTodosForm.human_attribute_name(:title), class: 'col-sm-2' %>
+        <div class="col-sm-8">
+          <%= f.send(:text_field, :title, class: 'form-control') %>
+        </div>
+      </div>
+      <div class='form-group row'>
+        <%= f.label :status, SearchTodosForm.human_attribute_name(:status), class: 'col-sm-2' %>
+        <div class="col-sm-8">
+          <%= f.collection_check_boxes(:status, Todo.statuses, :first, :last, include_hidden: false) do |c| %>
+            <%= c.label { c.check_box(checked: search_form.status.try(:include?, c.value)) + I18n.t(c.value, scope: [:enum, :status]) } %>
+          <% end %>
+        </div>
+      </div>
+      <div>
+        <%= button_tag('検索', value: 'html', name: 'format', class: 'btn btn-primary') %>
+      </div>
+    <% end %>
+  </div>
+</div>

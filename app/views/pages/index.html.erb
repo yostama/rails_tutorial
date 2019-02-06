@@ -1,0 +1,12 @@
+<h1>トップ</h1>
+
+<% if @todo.present? %>
+  最新の未達成ToDo
+  <%= render 'parts/todo/show_detail', todo: @todo %>
+<% else %>
+  現在未完了のToDoはありません。
+<% end %>
+
+<div class="bottom-btn-field">
+  <%= link_to "ToDoリスト", todos_path, class: 'btn btn-lg btn-light' %>
+</div>

@@ -1,0 +1,34 @@
+<%= form_with(model: todo, local: true) do |f| %>
+  <% if todo.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+      <% todo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class='row'>
+    <table class='table-hover col-sm-12'>
+      <% if todo.persisted? %>
+      <tr>
+        <th><%= Todo.human_attribute_name(:status) %></th>
+        <td><%= f.select :status, Todo.statuses.map { |k, v| [I18n.t(k, scope: [:enum, :status]), k] }, class: 'form-control' %></td>
+      </tr>
+      <% end %>
+      <tr>
+        <th><%= Todo.human_attribute_name(:title) %></th>
+        <td><%= f.text_field :title, class: 'form-control' %></td>
+      </tr>
+      <tr>
+        <th><%= Todo.human_attribute_name(:body) %></th>
+        <td><%= f.text_area :body, class: 'form-control' %></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="actions">
+    <%= render_save_submit f %>
+  </div>
+<% end %>
